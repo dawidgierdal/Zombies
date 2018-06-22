@@ -22,8 +22,6 @@ html, body{
   animation: zombieMove 0.9s steps(10) infinite, zombieWalk 10s 1 linear;
 }
 .score{
-  height: 200px;
-  width: 400px;
   font-size: 120px;
   color: darkred;
   text-align: center;

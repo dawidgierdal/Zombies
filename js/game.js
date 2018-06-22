@@ -5,15 +5,14 @@ document.addEventListener("DOMContentLoaded", function () {
     timer = setInterval(function () {
         var zombie = document.createElement("div");
         zombie.classList.add("zombie");
-        board.appendChild(zombie);
+
 
         var random= Math.floor(Math.random() * (180 - 20 + 1) + 20);
-        var randomScale= (Math.random() * (0.4 - 0.2 + 1) + 0.2);
         var randomSpeed=(Math.random() * (8 - 4 + 1) + 4);
 
 
         zombie.style.bottom=random + "px";
-        zombie.style.transform="scale("+randomScale+")";
+        // zombie.style.transform="scale("+randomScale+")";
         zombie.addEventListener("click", function (e) {
             this.remove();
             var x = counter+=1
@@ -21,17 +20,18 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (random>100) {
-            zombie.style.transform="+Math.random() * (0.1 - 0.05 + 1) + 0.05+";
-            zombie.style.zIndex=0;
+            zombie.style.transform= "scale(0.5)";
         }
         if (random<100){
-            zombie.style.transform="+Math.random() * (0.9 - 0.1 + 1) + 0.1+";
-            zombie.style.zIndex=1;
+            zombie.style.transform="scale(0.9)";
         }
         zombie.style.animationDuration="0.9s," + randomSpeed + "s";
+        zombie.style.zIndex = 180 - random;
+        board.appendChild(zombie);
 
         zombie.addEventListener("animationend",function (event) {
             this.remove();
+            console.log(event);
         })
     }, 1000)
 });
