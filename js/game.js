@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     var board = document.querySelector(".plansza");
-    var counter = 0;
+    var counterScore = 0;
+    var counterGone = 0;
     var score = document.querySelector(".score");
     var gone = document.querySelector(".gone");
     timer = setInterval(function () {
@@ -13,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         zombie.style.bottom=random + "px";
         zombie.addEventListener("click", function (e) {
             this.remove();
-            var x = counter+=1;
+            var x = counterScore+=1;
             score.innerHTML=x;
         });
 
@@ -33,10 +34,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
        zombie.addEventListener("animationend",function (event) {
             this.remove();
-            var z = counter+=1;
+            var z = counterGone+=1;
             var q = gone.innerHTML=z;
-            if(q===10){
+            if(q>=10){
+                clearInterval(timer);
                 alert("Your village is burned!");
+
             }
             console.log(event);
         })
