@@ -7,7 +7,8 @@
 - Canvas
 - Webpack
 
-###Page:
+### Page:
+
 [Live DEMO](https://dawidgierdal.github.io/Zombies/)
 
 ### Screenshoots
